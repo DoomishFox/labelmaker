@@ -1,35 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Element } from './datamodel.ts'
+import { Graph } from './Graph.tsx'
+import { Label } from './Label.tsx'
+import { LabelElement } from './LabelElement.tsx'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+   const [elements, setElements] = useState(Array<Element>())
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+   return (
+      <>
+         <h1>labelmaker</h1>
+         <div className="card">
+            <Graph
+               children={elements}
+               onElementAdd={(i, e) => setElements((elements) => i < 0 ? [...elements, e] : elements.toSpliced(i + 1, 0, e))}
+               onElementUpdate={(i, e) => setElements((elements) => elements.with(i, e))}
+               onElementRemove={(i) => setElements((elements) => elements.toSpliced(i, 1))}>
+            </Graph>
+         </div>
+         <div className="card">
+            <Label
+               children={elements.map((e) => <LabelElement element={e} />)}>
+            </Label>
+         </div>
+      </>
+   )
 }
 
 export default App

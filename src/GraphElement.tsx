@@ -113,7 +113,7 @@ export const GraphElement = ({ index, element, onElementUpdate, onElementRemove 
                                  })} />
                            </label>
                         </div>
-                        <div className="element-content" style={{borderColor: "var(--border-color)"}}>
+                        <div className="element-content stackpanel">
                            <Graph children={element.children}
                               onElementAdd={(i, e) =>
                                  onElementUpdate(index, {

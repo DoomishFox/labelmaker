@@ -11,6 +11,7 @@
   --background-color: #ffffff;
   --element-background-color: #f9f9f9;
   --input-background-color: white;
+  --grid-background-color: transparent;
 
   --positive-color: var(--color);
   --positive-background-color: rgb(192, 240, 213);
@@ -18,8 +19,12 @@
   --negative-color: white;
   --negative-background-color: rgb(255, 64, 64);
   
+  --border-light-color: #d0dce6;
   --border-color: #4b657c;
   --border-focus-color: #213547;
+  --negative-border-color: rgb(201, 44, 44);
+
+  --grid-height: 30px;
   
   color-scheme: light dark;
   color: var(--color);
@@ -56,7 +61,7 @@ button {
   border: 1px solid var(--border-color);
   /*padding: 0.6em 1.2em;*/
   padding: 0 1.2em;
-  height: 40px;
+  height: var(--grid-height);
   font-size: unset;
   font-weight: 500;
   font-family: inherit;
@@ -73,6 +78,7 @@ button {
 .btn-cancel {
   color: var(--negative-color);
   background-color: var(--negative-background-color);
+  border-color: var(--negative-border-color);
 }
 
 button:hover {
@@ -89,7 +95,7 @@ select {
   border: 1px solid var(--border-color);
   /*padding: 0.6em 1.2em;*/
   padding: 0 1.2em;
-  height: 40px;
+  height: var(--grid-height);
   font-size: unset;
   font-weight: 500;
   font-family: inherit;
@@ -112,7 +118,7 @@ input {
   border: 1px solid var(--border-color);
   /*padding: 0.6em 1.2em;*/
   padding: 0 1.2em;
-  height: 40px;
+  height: var(--grid-height);
   font-size: unset;
   font-weight: 500;
   font-family: inherit;
@@ -126,7 +132,7 @@ textarea {
   box-sizing: border-box;
   border-radius: 4px;
   border: 1px solid var(--border-color);
-  min-height: 80px;
+  min-height: calc(2 * var(--grid-height));
   min-width: 100%;
   max-width: 100%;
   font-size: unset;

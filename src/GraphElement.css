@@ -1,0 +1,34 @@
+.content {
+  margin: 20px;
+}
+
+.type-options {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.type-content {
+  margin-top: 10px;
+  /* border: 1px solid black; */
+}
+
+.element-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.element-options>* {
+  margin-right: 20px;
+}
+
+.element-content {
+  margin-top: 10px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--grid-color)
+}
+
+.element-content>input {
+
+}

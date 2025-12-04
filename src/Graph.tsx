@@ -13,21 +13,26 @@ interface GraphProps {
 export const Graph = ({ children = [], onElementAdd, onElementUpdate, onElementRemove }: GraphProps) => {
 
    return (
-      <div>
-         <ul>
+      <>
+         <ol className="graph">
             {children.map((element, i) =>
-               <li>
-                  <GraphElement
-                     index={i}
-                     element={element}
-                     onElementUpdate={(i, e) => onElementUpdate(i, e)}
-                     onElementRemove={(i) => onElementRemove(i)} />
-                  <button onClick={() => onElementAdd(i, new Element())}>+</button>
-               </li>)}
-         </ul>
-         <button onClick={() => onElementAdd(-1, new Element())}>
-            add element
-         </button>
-      </div>
+               <>
+                  <li className="graph-element">
+                     <GraphElement
+                        index={i}
+                        element={element}
+                        onElementUpdate={(i, e) => onElementUpdate(i, e)}
+                        onElementRemove={(i) => onElementRemove(i)} />
+                  </li>
+                  <button className="" onClick={() => onElementAdd(i, new Element())}>+</button>
+               </>
+            )}
+            {children.length == 0 &&
+               <button className="" onClick={() => onElementAdd(-1, new Element())}>
+                  add first element
+               </button>
+            }
+         </ol>
+      </>
    )
 }

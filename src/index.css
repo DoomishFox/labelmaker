@@ -1,11 +1,29 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 20px;
   font-weight: 400;
+  font-size: 1em;
 
+  
+  --color: #213547;
+  --grid-color: rgb(244, 244, 244);
+
+  --background-color: #ffffff;
+  --element-background-color: #f9f9f9;
+  --input-background-color: white;
+
+  --positive-color: var(--color);
+  --positive-background-color: rgb(192, 240, 213);
+
+  --negative-color: white;
+  --negative-background-color: rgb(255, 64, 64);
+  
+  --border-color: #4b657c;
+  --border-focus-color: #213547;
+  
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,16 +36,14 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 h1 {
@@ -37,32 +53,105 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border: 1px solid var(--border-color);
+  /*padding: 0.6em 1.2em;*/
+  padding: 0 1.2em;
+  height: 40px;
+  font-size: unset;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--element-background-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+
+.btn-add {
+  color: var(--positive-color);
+  background-color: var(--positive-background-color);
 }
+
+.btn-cancel {
+  color: var(--negative-color);
+  background-color: var(--negative-background-color);
+}
+
+button:hover {
+  border-color: var(--border-focus-color);
+}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+select {
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  /*padding: 0.6em 1.2em;*/
+  padding: 0 1.2em;
+  height: 40px;
+  font-size: unset;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--element-background-color);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+select:hover {
+  border-color: var(--border-focus-color);
+}
+
+select:focus,
+select:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  /*padding: 0.6em 1.2em;*/
+  padding: 0 1.2em;
+  height: 40px;
+  font-size: unset;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--input-background-color);
+  transition: border-color 0.25s;
+}
+
+textarea {
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  min-height: 80px;
+  min-width: 100%;
+  max-width: 100%;
+  font-size: unset;
+  font-weight: unset;
+  font-family: unset;
+
+}
+
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --color: rgba(255, 255, 255, 0.87);
+    --background-color: #242424;
+    --element-background-color: #1a1a1a;
+    --cancel-color: white;
+    --cancel-background-color: red;
+
+    --border-color: lightgray;
+    --border-focus-color: white;
   }
+
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
+
+  input {
+    background-color: white;
   }
 }
